@@ -1,13 +1,3 @@
-
-[build]
-  publish = "public"
-  functions = "netlify/functions"
-
-[[redirects]]
-  from = "/api/quote"
-  to = "/.netlify/functions/quote"
-  status = 200
-
 # AB_Creative website
 
 A one-page site with a quote builder. Clients answer questions, see their price, and get an emailed invoice (deposit amount and due dates). Avery gets an email with every request.

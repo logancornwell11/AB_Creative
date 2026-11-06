@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AB_Creative Photography</title>
+<meta name="description" content="Wedding, couples, family and portrait photography in Wichita, Kansas and surrounding areas. Build your quote online.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Homemade+Apple&family=Newsreader:opsz,wght@6..72,400;6..72,500&family=Hanken+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* Layout: cream header with a red dashed band over blue stripes, striped hero with a framed card, dotted work grid, a red-dot-on-blue field behind the quote builder. Everything sits on beige. */
+:root{
+  --bg:#F3EAD8;--paper:#FCF1DA;--ink:#6B3A24;--muted:#7D5A44;
+  --red:#D8341C;--ro:#C23F1A;--blue:#BFD6F0;--field:#B4CCF2;--pink:#F7D3D9;--err:#9A1F10;
+  --stripes:repeating-linear-gradient(90deg,#E8DCC0 0 26px,#BFD6F0 26px 40px);
+  --dots:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 600'%3E%3Cellipse cx='207' cy='116' rx='13.6' ry='12.7' transform='rotate(178 207 116)' fill='%23D8341C'/%3E%3Cellipse cx='380' cy='74' rx='15.3' ry='11.6' transform='rotate(78 380 74)' fill='%23D8341C'/%3E%3Cellipse cx='319' cy='229' rx='14.1' ry='12.2' transform='rotate(35 319 229)' fill='%23D8341C'/%3E%3Cellipse cx='67' cy='304' rx='13.3' ry='13.5' transform='rotate(4 67 304)' fill='%23D8341C'/%3E%3Cellipse cx='73' cy='84' rx='14.2' ry='12.5' transform='rotate(3 73 84)' fill='%23D8341C'/%3E%3Cellipse cx='260' cy='473' rx='13.3' ry='13.2' transform='rotate(92 260 473)' fill='%23D8341C'/%3E%3Cellipse cx='367' cy='536' rx='12.3' ry='14.4' transform='rotate(142 367 536)' fill='%23D8341C'/%3E%3Cellipse cx='551' cy='61' rx='15.9' ry='11.4' transform='rotate(48 551 61)' fill='%23D8341C'/%3E%3Cellipse cx='489' cy='189' rx='12.2' ry='13.7' transform='rotate(49 489 189)' fill='%23D8341C'/%3E%3Cellipse cx='202' cy='345' rx='12.5' ry='12.5' transform='rotate(164 202 345)' fill='%23D8341C'/%3E%3Cellipse cx='455' cy='405' rx='15.3' ry='11.9' transform='rotate(27 455 405)' fill='%23D8341C'/%3E%3Cellipse cx='480' cy='535' rx='15.7' ry='13.0' transform='rotate(126 480 535)' fill='%23D8341C'/%3E%3Cellipse cx='67' cy='442' rx='12.4' ry='11.2' transform='rotate(124 67 442)' fill='%23D8341C'/%3E%3Cellipse cx='308' cy='362' rx='13.7' ry='11.3' transform='rotate(169 308 362)' fill='%23D8341C'/%3E%3Cellipse cx='169' cy='219' rx='14.5' ry='13.8' transform='rotate(15 169 219)' fill='%23D8341C'/%3E%3Cellipse cx='432' cy='288' rx='15.4' ry='11.2' transform='rotate(155 432 288)' fill='%23D8341C'/%3E%3Cellipse cx='152' cy='539' rx='13.8' ry='12.2' transform='rotate(100 152 539)' fill='%23D8341C'/%3E%3C/svg%3E");
+  --hand:"Homemade Apple","Segoe Script","Bradley Hand",cursive;
+  --display:"Newsreader",Georgia,"Times New Roman",serif;
+  --sans:"Hanken Grotesk",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.6 var(--sans)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--paper);z-index:30}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--red);outline-offset:2px}
+.in{max-width:1120px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--display);font-weight:500;line-height:1.1;margin:0;text-wrap:balance}
+h2{font-size:clamp(34px,5.5vw,48px)}
+p{margin:0 0 1em}
+
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--paper)}
+.top .in{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:6px 24px;padding-block:8px}
+.logo{font:400 22px/1.2 var(--hand);color:var(--ro);text-decoration:none}
+.nav{display:flex;align-items:center;flex-wrap:wrap;gap:4px 22px;font:500 18px var(--display)}
+.nav a{text-decoration:none}
+.nav a:hover{color:var(--ro)}
+.dashband{height:14px;background:repeating-linear-gradient(90deg,var(--red) 0 12px,transparent 12px 26px),var(--stripes)}
+
+.btn{display:inline-block;font:500 18px/1.2 var(--display);border:2px solid var(--ink);background:var(--paper);color:var(--ink);padding:8px 24px;border-radius:3px;cursor:pointer;text-decoration:none}
+.btn:hover{background:var(--pink)}
+.btn.red{background:var(--red);color:#fff}
+.btn.red:hover{background:#B82B16}
+.btn[disabled]{opacity:.55;cursor:default}
+
+.card{background:var(--paper);box-shadow:inset 0 0 0 8px var(--paper),inset 0 0 0 10px var(--ink);padding:clamp(34px,6vw,56px) clamp(24px,5vw,52px)}
+.hero .card{max-width:640px;margin:0 auto;text-align:center}
+.hero h1{font-size:clamp(40px,8.5vw,72px);line-height:1;margin-bottom:16px}
+.hero p{max-width:44ch;margin-inline:auto}
+.hero .row{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:22px}
+.hero .talk{margin:18px 0 0;font-size:15px}
+
+.work{background-color:var(--bg);background-image:radial-gradient(circle,rgba(107,58,36,.16) 3.2px,transparent 3.8px),radial-gradient(circle,rgba(107,58,36,.16) 3.2px,transparent 3.8px);background-size:46px 46px;background-position:0 0,23px 23px;padding:clamp(44px,7vw,84px) 0}
+.work h2,.svcs-sec h2{margin-bottom:22px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:22px}
+.ph{position:relative;aspect-ratio:4/5;border:2px solid var(--ink);max-width:100%}
+.ph .soon{position:absolute;left:8px;bottom:8px;background:var(--paper);border:1px solid var(--ink);font-size:12px;padding:2px 8px}
+.cap{font:500 20px var(--display);margin-top:6px}
+
+.work h2{text-align:center}
+.shows{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(28px,5vw,56px) clamp(20px,4vw,48px);max-width:900px;margin:0 auto}
+.show{text-align:center;min-width:0}
+.frame{position:relative;aspect-ratio:4/5;width:100%;overflow:hidden;background:var(--paper)}
+.sl{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1s ease}
+.sl.on{opacity:1}
+.arr{position:absolute;top:50%;transform:translateY(-50%);width:40px;height:40px;border:0;border-radius:50%;background:rgba(252,241,218,.85);color:var(--ink);font:500 28px/1 var(--display);cursor:pointer;opacity:0;transition:opacity .2s;padding:0 0 4px}
+.arr.prev{left:10px}.arr.next{right:10px}
+.frame:hover .arr,.arr:focus-visible{opacity:1}
+@media (hover:none){.arr{opacity:.9}}
+.arr:focus-visible{outline:3px solid var(--red);outline-offset:2px}
+.show h3{font-size:30px;margin:14px 0 0}
+.show p{margin:2px 0 8px;color:var(--ink)}
+.dots{display:flex;flex-wrap:wrap;justify-content:center;gap:6px}
+.dots i{width:8px;height:8px;border-radius:50%;background:rgba(107,58,36,.3)}
+.dots i.on{background:var(--red)}
+@media (min-width:641px){.show:last-child:nth-child(odd){grid-column:1/-1;justify-self:center;width:calc(50% - clamp(10px,2vw,24px))}}
+@media (max-width:640px){.shows{grid-template-columns:1fr;max-width:420px}}
+@media (prefers-reduced-motion:reduce){.sl{transition:none}}
+.svcs-sec{padding:clamp(44px,7vw,84px) 0}
+.svcs{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
+.svc{border:2px solid var(--ink);background:var(--paper);padding:20px}
+.svc h3{font-size:26px;margin-bottom:6px}
+.svc h3::before,.inc li::before{content:"";display:inline-block;width:10px;height:10px;border-radius:50%;background:var(--red);margin-right:10px;vertical-align:middle}
+.svc p{margin:0;color:var(--muted)}
+
+.about-sec{background:var(--stripes);padding:clamp(40px,7vw,80px) 0}
+.about{display:grid;grid-template-columns:minmax(0,300px) minmax(0,1fr);gap:clamp(24px,5vw,56px);align-items:center;max-width:900px;margin:0 auto}
+.aphoto{display:block;width:100%;aspect-ratio:4/5;object-fit:cover;object-position:45% 50%;max-width:100%}
+.about .card{padding:clamp(28px,5vw,44px)}
+.about h2{margin-bottom:14px}
+.about .meta{font-size:15px;color:var(--muted);margin:0}
+
+.quote{background-color:var(--field);background-image:var(--dots);background-size:600px 600px;padding:clamp(40px,7vw,84px) 0}
+.builder{max-width:780px;margin:0 auto}
+.builder .lead{color:var(--muted);margin-bottom:22px}
+.prog{display:flex;align-items:center;gap:10px;margin-bottom:20px;font:500 18px var(--display)}
+.pd{width:14px;height:14px;border-radius:50%;border:2px solid var(--ink)}
+.pd.on{background:var(--red);border-color:var(--red)}
+.step h2{font-size:clamp(30px,5.5vw,40px);margin-bottom:18px}
+.step h2:focus{outline:none}
+.choices{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+.choice{position:relative;display:block;border:2px solid var(--ink);padding:14px 16px;cursor:pointer;background:var(--paper)}
+.choice input{position:absolute;inset:0;opacity:0;cursor:pointer;margin:0}
+.choice b{display:block;font:500 23px/1.05 var(--display)}
+.choice span{font-size:15px;color:var(--muted)}
+.choice:has(input:checked){background:var(--pink);box-shadow:4px 4px 0 var(--red)}
+.choice:has(input:focus-visible){outline:3px solid var(--red);outline-offset:2px}
+.f{margin:0 0 22px;min-width:0}
+.f .lab{display:block;font:500 19px/1.15 var(--display);margin-bottom:4px}
+.f small{display:block;color:var(--muted);font-size:14px;margin-top:3px}
+.f input,.f select,.f textarea{width:100%;font:500 17px var(--sans);color:var(--ink);background:transparent;border:0;border-bottom:2px solid var(--ink);padding:8px 0;border-radius:0}
+.f textarea{border:2px solid var(--ink);padding:10px;min-height:88px;resize:vertical}
+.f select{appearance:auto}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:0 24px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{position:relative;border:2px solid var(--ink);border-radius:999px;padding:5px 16px;cursor:pointer;font-size:16px;background:var(--paper)}
+.chip input{position:absolute;inset:0;opacity:0;cursor:pointer;margin:0;width:100%;height:100%}
+.chip:has(input:checked){background:var(--blue)}
+.chip:has(input:focus-visible){outline:3px solid var(--red);outline-offset:2px}
+.trap{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.nav2{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:8px}
+.err{color:var(--err);font-weight:600;min-height:1.5em;margin:0 0 8px}
+.small{font-size:14px;color:var(--muted)}
+.big{font:500 clamp(60px,13vw,96px)/1 var(--display);color:var(--ro);margin:0 0 14px}
+.tiles{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:20px}
+.tile{background:var(--pink);border:2px solid var(--ink);padding:12px 16px}
+.tile .k{font:500 18px var(--display)}
+.tile b{display:block;font:500 36px/1 var(--display)}
+.tile small{display:block;font-size:14px;margin-top:4px}
+.inc{list-style:none;padding:0;margin:0 0 18px}
+.inc li{padding:3px 0}
+.acts{display:flex;flex-wrap:wrap;gap:12px;margin:18px 0 10px}
+.done h2{margin-bottom:12px}
+
+/* quote builder: soft tinted options, brown text, no outlines */
+#builder{--brown:#6B3A24;--tint:#F2E3C4;--tint2:#EBD8B4;color:var(--brown);box-shadow:none;border-radius:16px}
+#builder h2,#builder h3,#builder .lab,#builder .choice b,#builder .tile .k,#builder .prog,#builder .lead,#builder p,#builder label,#builder li{color:var(--brown)}
+#builder .small,#builder .f small,#builder .choice span,#builder .tile small{color:#7D5A44}
+#builder .big{color:var(--ro)}
+#builder .choice{border:0;border-radius:12px;background:var(--tint);transition:background .15s}
+#builder .choice:hover{background:var(--tint2)}
+#builder .choice:has(input:checked){background:var(--pink);box-shadow:none}
+#builder .chip{border:0;background:var(--tint)}
+#builder .chip:hover{background:var(--tint2)}
+#builder .chip:has(input:checked){background:var(--blue)}
+#builder .f input,#builder .f select{border-bottom:1.5px solid rgba(107,58,36,.35);color:var(--brown)}
+#builder .f input:focus,#builder .f select:focus,#builder .f textarea:focus{outline:none;border-color:var(--red);box-shadow:0 2px 0 0 var(--red)}
+#builder .f textarea{border:0;border-radius:12px;background:var(--tint);color:var(--brown)}
+#builder .f textarea:focus{box-shadow:0 0 0 2px var(--red)}
+#builder .tile{border:0;border-radius:12px}
+#builder .pd{border:0;background:var(--tint2)}
+#builder .pd.on{background:var(--red)}
+#builder .btn{border:0;border-radius:10px;background:var(--tint2);color:var(--brown)}
+#builder .btn:hover{background:#E2CC9F}
+#builder .btn.red{background:var(--red);color:#fff}
+#builder .btn.red:hover{background:#B82B16}
+#builder .err{color:var(--err)}
+.foot{background:var(--paper);padding-bottom:28px}
+.foot .band{height:44px;background:var(--stripes)}
+.foot .in{padding-top:22px;display:flex;flex-wrap:wrap;gap:6px 24px;justify-content:space-between;font-size:15px}
+.foot p{margin:0}
+
+/* everything centered within its box */
+body{text-align:center}
+.svc,.about .card,.choice,.tile,.f,.step,.foot,.work h2,.svcs-sec h2{text-align:center}
+.f input,.f select,.f textarea{text-align:center;text-align-last:center}
+.f select option{text-align:center}
+.prog{justify-content:center}
+.inc{text-align:center}
+.foot .in{justify-content:center;text-align:center;flex-direction:column;align-items:center}
+.top .in{justify-content:center}
+.logo,.nav{text-align:center;justify-content:center}
+.err{text-align:center}
+.acts{justify-content:center}
+.step[data-n="5"] .nav2,.step[data-n="6"] .nav2{justify-content:center}
+.f textarea::placeholder,.f input::placeholder{text-align:center}
+@media (max-width:760px){.about{grid-template-columns:1fr}.aphoto{max-width:300px;margin:0 auto}}
+@media (max-width:560px){.two,.tiles{grid-template-columns:1fr}.nav{gap:2px 16px;font-size:20px}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+.hero{background:#C9D3E6 url(images/hero.jpg) center 70%/cover no-repeat;padding:clamp(24px,4vw,40px) 0;min-height:clamp(600px,72vw,820px);display:flex;align-items:center}
+.hero>.in{width:100%}
+/* postcard-stamp edge on the quote box */
+.hero .card{--r:8px;--s:22px;position:relative;background:var(--paper);padding:clamp(28px,3.5vw,38px) clamp(26px,5vw,52px);box-shadow:inset 0 0 0 12px var(--paper),inset 0 0 0 14px var(--ink);
+-webkit-mask:linear-gradient(#000 0 0) center/calc(100% - 2*var(--r)) calc(100% - 2*var(--r)) no-repeat,radial-gradient(circle var(--r) at 50% 0,#0000 97%,#000) 50% 0/var(--s) var(--r) repeat-x,radial-gradient(circle var(--r) at 50% 100%,#0000 97%,#000) 50% 100%/var(--s) var(--r) repeat-x,radial-gradient(circle var(--r) at 0 50%,#0000 97%,#000) 0 50%/var(--r) var(--s) repeat-y,radial-gradient(circle var(--r) at 100% 50%,#0000 97%,#000) 100% 50%/var(--r) var(--s) repeat-y;
+mask:linear-gradient(#000 0 0) center/calc(100% - 2*var(--r)) calc(100% - 2*var(--r)) no-repeat,radial-gradient(circle var(--r) at 50% 0,#0000 97%,#000) 50% 0/var(--s) var(--r) repeat-x,radial-gradient(circle var(--r) at 50% 100%,#0000 97%,#000) 50% 100%/var(--s) var(--r) repeat-x,radial-gradient(circle var(--r) at 0 50%,#0000 97%,#000) 0 50%/var(--r) var(--s) repeat-y,radial-gradient(circle var(--r) at 100% 50%,#0000 97%,#000) 100% 50%/var(--r) var(--s) repeat-y}
+.hero h1{font-size:clamp(34px,5.5vw,50px)}
+.hero .row{margin-top:16px}
+/* vintage photo frame + tighter fit */
+#builder{border:16px solid transparent;border-radius:4px;max-width:760px;margin-inline:auto;padding:clamp(22px,4vw,40px) clamp(18px,4vw,40px);
+background:
+radial-gradient(circle,#F0D9A4 0 2.5px,#B98B55 3px 5px,#4F2A1A 5.5px 7px,transparent 7.5px) left top/16px 16px no-repeat border-box,
+radial-gradient(circle,#F0D9A4 0 2.5px,#B98B55 3px 5px,#4F2A1A 5.5px 7px,transparent 7.5px) right top/16px 16px no-repeat border-box,
+radial-gradient(circle,#F0D9A4 0 2.5px,#B98B55 3px 5px,#4F2A1A 5.5px 7px,transparent 7.5px) left bottom/16px 16px no-repeat border-box,
+radial-gradient(circle,#F0D9A4 0 2.5px,#B98B55 3px 5px,#4F2A1A 5.5px 7px,transparent 7.5px) right bottom/16px 16px no-repeat border-box,
+linear-gradient(#FBEFD2,#FBEFD2) padding-box,
+linear-gradient(145deg,#A8744F,#5E3320 40%,#8F5E3E 68%,#4A2616) border-box;
+box-shadow:inset 0 0 0 2px #C9A26B,inset 0 0 0 9px #FBEFD2,inset 0 0 0 10px rgba(107,58,36,.4),0 14px 30px rgba(60,30,15,.35),0 0 0 1px #3E2012}
+#builder .step h2{font-size:clamp(26px,5vw,34px);margin-bottom:14px}
+#builder .f{margin-bottom:16px}
+#builder .f .lab{font-size:clamp(15px,3.8vw,17px)}
+#builder .f input,#builder .f select,#builder .f textarea{font-size:16px}
+#builder .two{grid-template-columns:repeat(2,minmax(0,1fr));gap:0 clamp(14px,3vw,24px)}
+@media(max-width:560px){#builder .two{grid-template-columns:minmax(0,1fr)}}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="in">
+    <a class="logo" href="#top">AB_Creative</a>
+    <nav class="nav" aria-label="Main">
+      <a href="#work">Work</a><a href="#about">About</a><a class="btn red" href="#quote">Get a quote</a>
+    </nav>
+  </div>
+  <div class="dashband" aria-hidden="true"></div>
+</header>
+
+<main id="top">
+  <section class="hero" aria-label="Avery holding her camera, seen in an antique mirror">
+    <div class="in">
+      <div class="card">
+        <h1>Real moments, taken with love.</h1>
+        <p>Hi, I'm Avery, a photographer in Wichita, Kansas. I shoot weddings, couples, families and portraits.</p>
+        <div class="row"><a class="btn red" href="#quote">Get my quote</a><a class="btn" href="#work">See my work</a></div>
+        <p class="talk">Prefer to talk first? <a href="#quote">Ask for a consultation.</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="work" id="work">
+    <div class="in">
+      <h2>Gallery</h2>
+      <div class="shows">
+<div class="show" data-n="5"><div class="frame"><img class="sl on" src="images/p02.jpg" alt="Couple holding hands in a field at sunset"><img class="sl" src="images/p03.jpg" alt="Couple in light blue outfits with a basket of daisies" loading="lazy"><img class="sl" src="images/p01.jpg" alt="Cowboy boots in golden light on the grass" style="object-position:40% 50%" loading="lazy"><img class="sl" src="images/p04.jpg" alt="Couple in blue walking through the trees with baby's breath" loading="lazy"><img class="sl" src="images/p21.jpg" alt="Man lifting his partner in a floral dress under a tree" style="object-position:72% 50%" loading="lazy"><button type="button" class="arr prev" aria-label="Previous Couples photo">&#8249;</button><button type="button" class="arr next" aria-label="Next Couples photo">&#8250;</button></div><h3>Couples</h3><p>Golden hour, daisies and a little twirl.</p><div class="dots" aria-hidden="true"></div></div>
+<div class="show" data-n="13"><div class="frame"><img class="sl on" src="images/p05.jpg" alt="Couple kissing by a lake holding an ultrasound photo"><img class="sl" src="images/p09.jpg" alt="Couple holding a heaven sent baby onesie" loading="lazy"><img class="sl" src="images/p12.jpg" alt="Couple kissing behind an ultrasound photo" loading="lazy"><img class="sl" src="images/p06.jpg" alt="Couple holding an ultrasound photo up to the sky" loading="lazy"><img class="sl" src="images/p17.jpg" alt="Couple hugging in a field, laughing" loading="lazy"><img class="sl" src="images/p11.jpg" alt="Heaven sent baby onesie on a wooden railing" loading="lazy"><img class="sl" src="images/p13.jpg" alt="Couple walking through tall grass holding a baby onesie" loading="lazy"><img class="sl" src="images/p15.jpg" alt="Black and white portrait of an expecting mom" loading="lazy"><img class="sl" src="images/p07.jpg" alt="Couple laughing with an ultrasound photo raised" loading="lazy"><img class="sl" src="images/p16.jpg" alt="Black and white hug with a kiss on the cheek" loading="lazy"><img class="sl" src="images/p08.jpg" alt="Couple embracing by the lake" loading="lazy"><img class="sl" src="images/p14.jpg" alt="Couple smiling and holding a baby onesie" loading="lazy"><img class="sl" src="images/p10.jpg" alt="Couple holding a baby onesie by the water" loading="lazy"><button type="button" class="arr prev" aria-label="Previous Maternity photo">&#8249;</button><button type="button" class="arr next" aria-label="Next Maternity photo">&#8250;</button></div><h3>Maternity</h3><p>Waiting for you, heaven sent.</p><div class="dots" aria-hidden="true"></div></div>
+<div class="show" data-n="4"><div class="frame"><img class="sl on" src="images/p26.jpg" alt="Newborn in a blue outfit resting in a parent's arms"><img class="sl" src="images/p25.jpg" alt="Newborn hand wrapped around a finger" style="object-position:55% 50%" loading="lazy"><img class="sl" src="images/p27.jpg" alt="Close-up of a newborn's face" style="object-position:55% 50%" loading="lazy"><img class="sl" src="images/p28.jpg" alt="Newborn's hand held in a parent's hand" style="object-position:62% 50%" loading="lazy"><button type="button" class="arr prev" aria-label="Previous Newborn photo">&#8249;</button><button type="button" class="arr next" aria-label="Next Newborn photo">&#8250;</button></div><h3>Newborn</h3><p>Tiny hands and sleepy eyes.</p><div class="dots" aria-hidden="true"></div></div>
+<div class="show" data-n="4"><div class="frame"><img class="sl on" src="images/p22.jpg" alt="Graduate smiling over her shoulder"><img class="sl" src="images/p18.jpg" alt="Graduate holding up a diploma cover" loading="lazy"><img class="sl" src="images/p23.jpg" alt="Graduate smiling by the water" loading="lazy"><img class="sl" src="images/p24.jpg" alt="Graduate laughing beside a pond" loading="lazy"><button type="button" class="arr prev" aria-label="Previous Graduation photo">&#8249;</button><button type="button" class="arr next" aria-label="Next Graduation photo">&#8250;</button></div><h3>Graduation</h3><p>Cap, gown and a big smile.</p><div class="dots" aria-hidden="true"></div></div>
+<div class="show" data-n="7"><div class="frame"><img class="sl on" src="images/p30.jpg" alt="Woman in a pink dress walking along a park path"><img class="sl" src="images/p35.jpg" alt="Woman in a floral top surprised and delighted in front of a hammock" loading="lazy"><img class="sl" src="images/p33.jpg" alt="Woman in a pink dress smiling by a waterfall" style="object-position:47% 50%" loading="lazy"><img class="sl" src="images/p29.jpg" alt="Woman in a pink dress sitting on a blanket with her journal" style="object-position:52% 45%" loading="lazy"><img class="sl" src="images/p32.jpg" alt="Woman in a pink dress smiling over her shoulder" loading="lazy"><img class="sl" src="images/p34.jpg" alt="Woman in a pink dress laughing by the rocks" loading="lazy"><img class="sl" src="images/p31.jpg" alt="Woman in a pink dress walking down a tree-lined path" style="object-position:50% 50%" loading="lazy"><button type="button" class="arr prev" aria-label="Previous Portraits photo">&#8249;</button><button type="button" class="arr next" aria-label="Next Portraits photo">&#8250;</button></div><h3>Portraits</h3><p>Just you, looking your best.</p><div class="dots" aria-hidden="true"></div></div>
+<div class="show" data-n="4"><div class="frame"><img class="sl on" src="images/p36.jpg" alt="Smiling young woman at a vintage school desk with books and an apple"><img class="sl" src="images/p37.jpg" alt="Homeschool t-shirt, pencils and books on a wooden desk" style="object-position:50% 50%" loading="lazy"><img class="sl" src="images/p38.jpg" alt="Stack of classic books topped with an apple beside a jar of pencils" style="object-position:55% 50%" loading="lazy"><img class="sl" src="images/p39.jpg" alt="Close-up of sharpened pencils in a mason jar" style="object-position:75% 50%" loading="lazy"><button type="button" class="arr prev" aria-label="Previous Back to school photo">&#8249;</button><button type="button" class="arr next" aria-label="Next Back to school photo">&#8250;</button></div><h3>Back to school</h3><p>Sharpened pencils and one shiny apple.</p><div class="dots" aria-hidden="true"></div></div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="about-sec" id="about">
+    <div class="in">
+      <div class="about">
+        <img class="aphoto" src="images/avery.jpg" alt="Avery smiling on the beach at sunset">
+        <div class="card">
+          <h2>Hi, I'm Avery.</h2>
+          <p>I’m a young college student and photographer, building my business with passion and purpose. I believe God has given me creativity to create, learn, be real, and connect deeply with people. Photography isn’t just my job – it’s my ministry, and I pray each session reflects His goodness and love.</p>
+          <p class="meta">Based in Wichita, Kansas. I also travel to nearby towns. Find me on Instagram at <a href="https://instagram.com/spoon_of_boone" target="_blank" rel="noopener">@spoon_of_boone</a>.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="quote" id="quote">
+    <div class="in">
+      <div class="card builder" id="builder">
+        <noscript><p>Please turn on JavaScript to use the quote builder, or message Avery on Instagram.</p></noscript>
+        <div class="prog" id="prog" aria-live="polite"></div>
+        <form id="qb" novalidate>
+
+          <section class="step" data-n="1">
+            <h2 tabindex="-1">What would you like to book?</h2>
+            <p class="lead">Answer a few questions and you'll get your price right away. No pressure, and you can ask for a consultation instead at the end.</p>
+            <div class="choices" id="choices" role="radiogroup" aria-label="Type of session"></div>
+            <p class="err" id="e1" role="alert"></p>
+            <div class="nav2"><span></span><button type="button" class="btn red" data-next>Next</button></div>
+          </section>
+
+          <section class="step" data-n="2" hidden>
+            <h2 tabindex="-1">Tell me about your session</h2>
+            <div class="two">
+              <div class="f"><label class="lab" for="date">What date are you hoping for?</label><input id="date" type="date"></div>
+              <div class="f"><label class="lab" for="flex">How flexible is your date?</label><select id="flex"></select></div>
+            </div>
+            <div class="two">
+              <div class="f"><label class="lab" for="town">Where will we shoot?</label><select id="town"></select></div>
+              <div class="f"><label class="lab" for="venue">Venue or spot, if you know it</label><input id="venue" type="text" maxlength="120"></div>
+            </div>
+            <div class="two">
+              <div class="f"><label class="lab" for="people" id="peopleLab">How many people will be in the photos?</label><input id="people" type="number" min="1" max="500" step="1" inputmode="numeric"></div>
+              <div class="f"><label class="lab" for="locations">How many different spots?</label><select id="locations"></select><small id="locHint"></small></div>
+            </div>
+            <div class="f" data-svc="couples"><label class="lab" for="occasion">What's the occasion?</label><select id="occasion"><option value="">Choose one</option><option>Engagement</option><option>Anniversary</option><option>Proposal</option><option>Just because</option><option>Something else</option></select></div>
+            <div class="f" data-svc="individual"><label class="lab" for="purpose">What are the photos for?</label><select id="purpose"><option value="">Choose one</option><option>Senior portraits</option><option>Professional headshots</option><option>Personal branding</option><option>Just for me</option><option>Something else</option></select></div>
+            <div class="f" data-svc="individual other"><label class="lab" for="usage">Will you use the photos for a business?</label><select id="usage"><option value="personal">No, personal use only</option><option value="business">Yes, for my business or brand</option></select></div>
+            <div class="f" data-svc="family"><label class="lab" for="famWho">Who will be in your photos, and how old are the kids?</label><textarea id="famWho" maxlength="400"></textarea></div>
+            <p class="err" id="e2" role="alert"></p>
+            <div class="nav2"><button type="button" class="btn" data-back>Back</button><button type="button" class="btn red" data-next>Next</button></div>
+          </section>
+
+          <section class="step" data-n="3" hidden>
+            <h2 tabindex="-1">Your style</h2>
+            <div class="f"><span class="lab">Which words describe the look you love?</span><div class="chips" id="vibes"></div></div>
+            <div class="f"><label class="lab" for="must">Anything you absolutely want photographed?</label><textarea id="must" maxlength="800"></textarea></div>
+            <div class="f"><span class="lab">Would you like any extras?</span><div class="chips" id="extras"></div></div>
+            <div class="two">
+              <div class="f"><label class="lab" for="rush">Need your photos faster than usual?</label><select id="rush"><option value="std">No, standard turnaround</option><option value="rush">Yes, faster delivery</option></select></div>
+              <div class="f"><label class="lab" for="budget">What budget feels comfortable?</label><select id="budget"></select><small>This just helps me plan. It won't change your price.</small></div>
+            </div>
+            <div class="f"><label class="lab" for="notes">Anything else I should know?</label><textarea id="notes" maxlength="800"></textarea></div>
+            <div class="nav2"><button type="button" class="btn" data-back>Back</button><button type="button" class="btn red" data-next>Next</button></div>
+          </section>
+
+          <section class="step" data-n="4" hidden>
+            <h2 tabindex="-1">Where should I send your quote?</h2>
+            <div class="two">
+              <div class="f"><label class="lab" for="name">Your name</label><input id="name" type="text" autocomplete="name" maxlength="80"></div>
+              <div class="f"><label class="lab" for="email">Email</label><input id="email" type="email" autocomplete="email" maxlength="120"></div>
+              <div class="f"><label class="lab" for="phone">Phone (optional)</label><input id="phone" type="tel" autocomplete="tel" maxlength="30"></div>
+              <div class="f"><label class="lab" for="pref">How should I reach you?</label><select id="pref"><option value="">No preference</option><option>Text</option><option>Email</option><option>Either</option></select></div>
+            </div>
+            <div class="f"><label class="lab" for="source">How did you hear about me?</label><input id="source" type="text" maxlength="100"></div>
+            <div class="trap" aria-hidden="true"><label>Leave this empty<input id="website" type="text" tabindex="-1" autocomplete="off"></label></div>
+            <p class="small">I only use your details to send your quote and get in touch about your session.</p>
+            <p class="err" id="e4" role="alert"></p>
+            <div class="nav2"><button type="button" class="btn" data-back>Back</button><button type="button" class="btn red" data-next>See my quote</button></div>
+          </section>
+
+          <section class="step" data-n="5" hidden>
+            <h2 tabindex="-1">Here's your quote</h2>
+            <p class="big" id="rTotal"></p>
+            <div class="tiles">
+              <div class="tile"><span class="k">Deposit to hold your date</span><b id="rDep"></b><small id="rDepDue"></small></div>
+              <div class="tile"><span class="k">Remaining</span><b id="rBal"></b><small id="rBalDue"></small></div>
+            </div>
+            <p><b>Your session includes</b></p>
+            <ul class="inc" id="rInc"></ul>
+            <p class="small" id="rNote"></p>
+            <div class="acts">
+              <button type="button" class="btn red" id="goInvoice">Email me my invoice</button>
+              <button type="button" class="btn" id="goConsult">I'd rather talk first</button>
+            </div>
+            <p class="small">Emailing your invoice doesn't charge you. Your date is held once your deposit is paid.</p>
+            <p class="err" id="e5" role="alert"></p>
+            <div class="nav2"><button type="button" class="btn" data-back>Back</button><span></span></div>
+          </section>
+
+          <section class="step done" data-n="6" hidden>
+            <h2 tabindex="-1" id="doneH"></h2>
+            <p id="doneP"></p>
+            <p class="small">You can also message Avery on Instagram at <a href="https://instagram.com/spoon_of_boone" target="_blank" rel="noopener">@spoon_of_boone</a>.</p>
+            <button type="button" class="btn" id="again">Start a new quote</button>
+          </section>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="band" aria-hidden="true"></div>
+  <div class="in">
+    <p>© 2026 AB_Creative. Photography in Wichita, Kansas and surrounding areas.</p>
+    <p><a href="https://instagram.com/spoon_of_boone" target="_blank" rel="noopener">@spoon_of_boone</a></p>
+  </div>
+</footer>
+
+<script src="pricing.js"></script>
+<script>
+(function () {
+  const P = window.ABPricing, C = P.CONFIG, $ = (id) => document.getElementById(id);
+  const API = "/api/quote";
+  const BLURBS = {
+    wedding: "Your whole day, from getting ready to the send-off",
+    elopement: "Small, simple and all about the two of you",
+    couples: "Engagements, anniversaries or just because",
+    family: "Kids, grandparents and everyone in between",
+    individual: "Seniors, headshots and personal branding",
+    other: "Maternity, newborns, events and more"
+  };
+  const NAMES = { wedding: "Wedding", elopement: "Elopement or intimate wedding", couples: "Couples or engagement", family: "Family", individual: "Individual portraits", other: "Something else" };
+  const steps = [...document.querySelectorAll(".step")];
+  let step = 1, svc = "", last = null;
+
+  const opt = (v, t) => { const o = document.createElement("option"); o.value = v; o.textContent = t; return o; };
+  const fill = (sel, list) => list.forEach((x) => sel.appendChild(opt(x[0], x[1])));
+  fill($("flex"), [["", "Choose one"]].concat(P.FLEX.map((x) => [x, x])));
+  fill($("town"), P.TOWNS.map((t) => [t[0], t[1]]));
+  fill($("budget"), [["", "Choose one"]].concat(P.BUDGETS));
+  $("date").min = P.addDays(P.todayCT(), 1);
+
+  function chip(parent, name, value, text) {
+    const l = document.createElement("label"); l.className = "chip";
+    const i = document.createElement("input"); i.type = "checkbox"; i.name = name; i.value = value;
+    l.appendChild(i); l.appendChild(document.createTextNode(text)); parent.appendChild(l);
+  }
+  P.VIBES.forEach((v) => chip($("vibes"), "vibe", v, v));
+
+  P.ALL.forEach((k) => {
+    const l = document.createElement("label"); l.className = "choice";
+    l.innerHTML = '<input type="radio" name="service" value="' + k + '"><b></b><span></span>';
+    l.querySelector("b").textContent = NAMES[k]; l.querySelector("span").textContent = BLURBS[k];
+    $("choices").appendChild(l);
+  });
+  $("choices").addEventListener("change", (e) => { svc = e.target.value; $("e1").textContent = ""; setupService(); });
+
+  function setupService() {
+    const v = C.svc[svc];
+    $("locations").innerHTML = ""; fill($("locations"), [1, 2, 3, 4, 5].map((n) => [String(n), String(n)])); $("locations").value = String(v.loc);
+    $("locHint").textContent = svc === "wedding" ? "Count getting ready, ceremony, reception and portrait spots." : "";
+    $("peopleLab").textContent = svc === "wedding" || svc === "elopement" ? "How many guests are you expecting?" : "How many people will be in the photos?";
+    document.querySelectorAll("[data-svc]").forEach((el) => { el.hidden = !el.dataset.svc.split(" ").includes(svc); });
+    $("extras").innerHTML = "";
+    P.ADDONS.filter((x) => x.svc.includes(svc)).forEach((x) => chip($("extras"), "adds", x.id, x.label));
+  }
+
+  function show(n) {
+    step = n;
+    steps.forEach((s) => { s.hidden = Number(s.dataset.n) !== n; });
+    const p = $("prog"); p.innerHTML = "";
+    if (n <= 4) {
+      for (let i = 1; i <= 4; i++) { const d = document.createElement("span"); d.className = "pd" + (i <= n ? " on" : ""); p.appendChild(d); }
+      p.appendChild(document.createTextNode("Step " + n + " of 4"));
+    }
+    const h = steps[n - 1].querySelector("h2");
+    if (n > 1 || last) { $("builder").scrollIntoView({ block: "start", behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" }); }
+    h.focus({ preventScroll: true });
+  }
+
+  function collect() {
+    const checked = (id) => [...document.querySelectorAll("#" + id + " input:checked")].map((i) => i.value);
+    const v = (id) => ($(id) ? $(id).value : "");
+    return {
+      service: svc, date: v("date"), flex: v("flex"), town: v("town"), venue: v("venue"), hours: "", people: v("people"), locations: v("locations"),
+      occasion: v("occasion"), purpose: v("purpose"), usage: v("usage"), famWho: v("famWho"), vibe: checked("vibes"), must: v("must"), adds: checked("extras"),
+      rush: v("rush"), budget: v("budget"), notes: v("notes"), name: v("name"), email: v("email"), phone: v("phone"), pref: v("pref"), source: v("source"), website: v("website")
+    };
+  }
+
+  function validate(n) {
+    if (n === 1 && !svc) { $("e1").textContent = "Please choose what you'd like to book."; return false; }
+    if (n === 2) {
+      if (!(Number($("people").value) >= 1)) { $("e2").textContent = "Please tell me how many people will be in the photos."; $("people").focus(); return false; }
+      const d = $("date").value;
+      if (d && d <= P.todayCT()) { $("e2").textContent = "Please pick a date after today."; $("date").focus(); return false; }
+      $("e2").textContent = "";
+    }
+    return true;
+  }
+
+  function renderQuote() {
+    const q = P.quote(collect(), C);
+    if (q.errs.length) { $("e4").textContent = q.errs[0]; return false; }
+    last = q;
+    const r = q.r, d = q.dates;
+    $("e4").textContent = "";
+    $("rTotal").textContent = P.money(r.final);
+    $("rDep").textContent = P.money(r.deposit);
+    $("rDepDue").textContent = "Due " + P.fmtDate(d.depositDue);
+    $("rBal").textContent = P.money(r.balance);
+    $("rBalDue").textContent = d.balanceDue ? (d.payAtOnce ? "Due with your deposit" : "Due " + P.fmtDate(d.balanceDue)) : "Due " + C.svc[q.a.service].due + " days before your session";
+    $("rInc").innerHTML = ""; q.included.forEach((t) => { const li = document.createElement("li"); li.textContent = t; $("rInc").appendChild(li); });
+    $("rNote").textContent = C.nonRefundable ? "The deposit holds your date and is non-refundable." : "The deposit holds your date.";
+    $("e5").textContent = "";
+    return true;
+  }
+
+  async function send(action) {
+    const btns = [$("goInvoice"), $("goConsult")]; btns.forEach((b) => (b.disabled = true));
+    $("e5").textContent = "";
+    try {
+      const res = await fetch(API, { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify(Object.assign(collect(), { action })) });
+      let data = {}; try { data = await res.json(); } catch (e) {}
+      if (!res.ok || !data.ok) throw new Error(data.error || "We couldn't send that just now.");
+      done(action, data);
+    } catch (e) {
+      $("e5").textContent = (e && e.message ? e.message : "We couldn't send that just now.") + " You can also message Avery on Instagram at @spoon_of_boone.";
+      btns.forEach((b) => (b.disabled = false));
+    }
+  }
+
+  function done(action, data) {
+    const email = $("email").value.trim();
+    if (action === "consult") {
+      $("doneH").textContent = "We got your request!";
+      $("doneP").textContent = "Avery will reach out soon to set up your consultation. We also emailed a confirmation to " + email + ".";
+    } else {
+      $("doneH").textContent = "Your invoice is on its way!";
+      $("doneP").textContent = "We emailed it to " + email + ". Your " + P.money(data.deposit) + " deposit is due " + P.fmtDate(data.depositDue) + ". If you don't see it in a few minutes, check your spam folder.";
+    }
+    show(6);
+  }
+
+  document.addEventListener("click", (e) => {
+    const t = e.target.closest("button"); if (!t) return;
+    if (t.hasAttribute("data-next")) {
+      if (!validate(step)) return;
+      if (step === 4) { if (renderQuote()) show(5); return; }
+      show(step + 1);
+    } else if (t.hasAttribute("data-back")) show(Math.max(1, step - 1));
+  });
+  $("goInvoice").addEventListener("click", () => send("invoice"));
+  $("goConsult").addEventListener("click", () => send("consult"));
+  $("again").addEventListener("click", () => { $("qb").reset(); svc = ""; last = null; document.querySelectorAll("#choices input").forEach((i) => (i.checked = false)); $("goInvoice").disabled = false; $("goConsult").disabled = false; show(1); });
+  $("qb").addEventListener("submit", (e) => e.preventDefault());
+  show(1);
+
+  /* gallery */
+  (function () {
+    const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+    document.querySelectorAll(".show").forEach((sh, k) => {
+      const sl = [...sh.querySelectorAll(".sl")], dots = sh.querySelector(".dots");
+      let cur = 0, timer = null, held = false;
+      sl.forEach(() => dots.appendChild(document.createElement("i")));
+      const paint = () => { sl.forEach((x, i) => x.classList.toggle("on", i === cur)); [...dots.children].forEach((d, i) => d.classList.toggle("on", i === cur)); };
+      const go = (d) => { cur = (cur + d + sl.length) % sl.length; paint(); };
+      const start = () => { if (reduce || timer) return; timer = setInterval(() => { if (!held && !document.hidden) go(1); }, 4500 + k * 700); };
+      sh.querySelector(".prev").addEventListener("click", () => go(-1));
+      sh.querySelector(".next").addEventListener("click", () => go(1));
+      sh.addEventListener("mouseenter", () => (held = true)); sh.addEventListener("mouseleave", () => (held = false));
+      sh.addEventListener("focusin", () => (held = true)); sh.addEventListener("focusout", () => (held = false));
+      paint(); start();
+    });
+  })();
+})();
+</script>
+</body>
+</html>
